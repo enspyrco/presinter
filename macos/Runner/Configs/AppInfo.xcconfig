@@ -11,4 +11,4 @@ PRODUCT_NAME = presinter
 PRODUCT_BUNDLE_IDENTIFIER = co.enspyr.presinter
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 co.enspyr. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 co.enspyr. All rights reserved.

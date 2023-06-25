@@ -1,6 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.enspyr.presinter">
-   <application
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
         android:label="presinter"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
