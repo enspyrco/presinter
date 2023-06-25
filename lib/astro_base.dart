@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:astro/astro.dart';
 import 'package:astro_auth/astro_auth.dart';
+import 'package:astro_core/astro_core.dart';
 import 'package:astro_error_handling/astro_error_handling.dart';
 import 'package:astro_inspector_screen/astro_inspector_screen.dart';
 import 'package:astro_locator/astro_locator.dart';
