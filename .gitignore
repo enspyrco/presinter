@@ -56,3 +56,9 @@ android/app/google-services.json
 
 # local settings
 .vscode/settings.json
+
+# firebase config files
+lib/firebase_options.dart
+macos/firebase_app_id_file.json
+macos/Runner/GoogleService-Info.plist
+ios/Runner/GoogleService-Info.plist
