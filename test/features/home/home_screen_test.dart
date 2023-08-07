@@ -1,5 +1,5 @@
-import 'package:astro_auth/astro_auth.dart';
-import 'package:astro_test_utils/astro_widgets_test_utils.dart';
+import 'package:auth_for_perception/auth_for_perception.dart';
+import 'package:test_utils_for_perception/test_utils_for_perception.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:presinter/app/home/home_screen.dart';
 import 'package:presinter/app/home/role_selector.dart';

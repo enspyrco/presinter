@@ -1,4 +1,4 @@
-import 'package:astro_auth/astro_auth.dart';
+import 'package:auth_for_perception/auth_for_perception.dart';
 import 'package:flutter/material.dart';
 
 import '../state/app_state.dart';

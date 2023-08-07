@@ -1,17 +1,17 @@
-import 'package:astro_auth/astro_auth.dart';
-import 'package:astro_error_handling/astro_error_handling.dart';
-import 'package:astro_navigation/astro_navigation.dart';
-import 'package:astro_types/auth_types.dart';
-import 'package:astro_types/error_handling_types.dart';
-import 'package:astro_types/navigation_types.dart';
-import 'package:astro_types/state_types.dart';
+import 'package:auth_for_perception/auth_for_perception.dart';
+import 'package:error_handling_for_perception/error_handling_for_perception.dart';
+import 'package:navigation_for_perception/navigation_for_perception.dart';
+import 'package:types_for_perception/auth_beliefs.dart';
+import 'package:types_for_perception/beliefs.dart';
+import 'package:types_for_perception/error_handling_types.dart';
+import 'package:types_for_perception/navigation_types.dart';
 
 class AppState
     implements
-        AstroState,
+        CoreBeliefs,
         AppStateNavigation,
         AppStateErrorHandling,
-        AppStateAuth {
+        AuthConcept {
   AppState({
     required this.auth,
     required this.error,
@@ -19,14 +19,14 @@ class AppState
   });
 
   @override
-  final AuthState auth;
+  final AuthBeliefs auth;
   @override
   final DefaultErrorHandlingState error;
   @override
   final DefaultNavigationState navigation;
 
   static AppState get initial => AppState(
-        auth: AstroAuth.initialState(),
+        auth: AuthBeliefSystem.initialBeliefs(),
         error: DefaultErrorHandlingState.initial,
         navigation: DefaultNavigationState.initial,
       );
@@ -35,7 +35,7 @@ class AppState
   AppState copyWith({
     DefaultNavigationState? navigation,
     DefaultErrorHandlingState? error,
-    AuthState? auth,
+    AuthBeliefs? auth,
   }) =>
       AppState(
         navigation: navigation ?? this.navigation,
