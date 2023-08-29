@@ -1,15 +1,15 @@
 import 'package:locator_for_perception/locator_for_perception.dart';
 import 'package:flutter/widgets.dart';
-import 'package:types_for_perception/beliefs.dart';
+import 'package:abstractions/beliefs.dart';
 
-import '../app/state/app_state.dart';
+import '../presinter_beliefs.dart';
 
 extension BuildContextExtension on BuildContext {
-  void land(LandingMission<AppState> mission) {
-    return locate<MissionControl<AppState>>().land(mission);
+  void land(Conclusion<PresinterBeliefs> mission) {
+    return locate<BeliefSystem<PresinterBeliefs>>().conclude(mission);
   }
 
-  Future<void> launch(AwayMission<AppState> mission) {
-    return locate<MissionControl<AppState>>().launch(mission);
+  Future<void> launch(Consideration<PresinterBeliefs> mission) {
+    return locate<BeliefSystem<PresinterBeliefs>>().consider(mission);
   }
 }

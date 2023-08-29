@@ -1,7 +1,7 @@
-import 'package:auth_for_perception/auth_for_perception.dart';
+import 'package:identity_in_perception/identity_in_perception.dart';
 import 'package:flutter/material.dart';
 
-import '../state/app_state.dart';
+import '../presinter_beliefs.dart';
 import 'role_selector.dart';
 import 'sessions_view.dart';
 
@@ -16,15 +16,15 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),
           actions: const [
-            AvatarMenuButton<AppState>(
+            AvatarMenuButton<PresinterBeliefs>(
               options: {
-                MenuOption('Sign Out', SignOut()),
+                MenuOption('Sign Out', SignOut<PresinterBeliefs>()),
               },
             )
           ],
         ),
-        body: Center(
-          child: Row(children: const [RoleSelector(), SessionsView()]),
+        body: const Center(
+          child: Row(children: [RoleSelector(), SessionsView()]),
         ));
   }
 }
