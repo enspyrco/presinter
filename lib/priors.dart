@@ -46,7 +46,7 @@ void initializeApp() {
   initializeErrorHandling<PresinterBeliefs>();
   initializeAuthPlugin<PresinterBeliefs>(initialScreen: const HomeScreen());
   initializeIntrospection<PresinterBeliefs>();
-  initializeNavigationPlugin<PresinterBeliefs>();
+  initializeFraming<PresinterBeliefs>();
 }
 
 class AstroBase extends StatelessWidget {
