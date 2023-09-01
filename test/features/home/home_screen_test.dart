@@ -11,7 +11,7 @@ void main() {
     final testState = PresinterBeliefs.initial;
 
     final harness = WidgetTestHarness(
-      initialState: testState,
+      initialBeliefs: testState,
       innerWidget: const HomeScreen(),
     );
 

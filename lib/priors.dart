@@ -34,9 +34,9 @@ Future<void> setupPriors() async {
 
   /// Finally, create our BeliefSystem and add to the Locator.
   final beliefSystem = DefaultBeliefSystem<PresinterBeliefs>(
-      state: locate<PresinterBeliefs>(),
+      beliefs: locate<PresinterBeliefs>(),
       errorHandlers: DefaultErrorHandlers<PresinterBeliefs>(),
-      systemChecks: locate<Habits>(),
+      habits: locate<Habits>(),
       beliefSystemFactory: ParentingBeliefSystem.new);
   Locator.add<BeliefSystem<PresinterBeliefs>>(beliefSystem);
 }
