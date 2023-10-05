@@ -45,8 +45,8 @@ class PresinterBeliefs
 
   @override
   toJson() => {
-        'navigation': framing.toJson(),
-        'auth': identity.toJson(),
+        'framing': framing.toJson(),
+        'identity': identity.toJson(),
         'error': error.toJson(),
       };
 }
