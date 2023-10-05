@@ -1,4 +1,4 @@
-import 'package:identity_in_perception/identity_in_perception.dart';
+import 'package:flutterfire_firebase_auth_for_perception/flutterfire_firebase_auth_for_perception.dart';
 import 'package:test_utils_for_perception/test_utils_for_perception.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:presinter/home/home_screen.dart';

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutterfire_firestore_service/flutterfire_firestore_service.dart';
-import 'package:identity_in_perception/identity_in_perception.dart';
+import 'package:flutterfire_firebase_auth_for_perception/flutterfire_firebase_auth_for_perception.dart';
 import 'package:percepts/percepts.dart';
 import 'package:error_correction_in_perception/error_correction_in_perception.dart';
 import 'package:introspection/introspection.dart';
@@ -66,8 +66,8 @@ class AstroBase extends StatelessWidget {
         Expanded(
           flex: 1,
           child: FramingBuilder<PresinterBeliefs>(
-            onInit: (beliefSystem) =>
-                beliefSystem.consider(const BindAuthState<PresinterBeliefs>()),
+            onInit: (beliefSystem) => beliefSystem
+                .consider(const ObservingIdentity<PresinterBeliefs>()),
           ),
         ),
       ],

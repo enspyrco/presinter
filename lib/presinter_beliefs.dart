@@ -1,10 +1,10 @@
-import 'package:identity_in_perception/identity_in_perception.dart';
 import 'package:error_correction_in_perception/error_correction_in_perception.dart';
 import 'package:framing_in_perception/framing_in_perception.dart';
 import 'package:abstractions/identity.dart';
 import 'package:abstractions/beliefs.dart';
 import 'package:abstractions/error_correction.dart';
 import 'package:abstractions/framing.dart';
+import 'package:percepts/percepts.dart';
 
 class PresinterBeliefs
     implements
@@ -13,20 +13,20 @@ class PresinterBeliefs
         ErrorCorrectionConcept,
         IdentityConcept {
   PresinterBeliefs({
-    required this.auth,
+    required this.identity,
     required this.error,
     required this.framing,
   });
 
   @override
-  final IdentityBeliefs auth;
+  final IdentityBeliefs identity;
   @override
   final DefaultErrorCorrectionBeliefs error;
   @override
   final DefaultFramingBeliefs framing;
 
   static PresinterBeliefs get initial => PresinterBeliefs(
-        auth: AuthBeliefSystem.initialBeliefs(),
+        identity: DefaultIdentityBeliefs.initial,
         error: DefaultErrorCorrectionBeliefs.initial,
         framing: DefaultFramingBeliefs.initial,
       );
@@ -39,14 +39,14 @@ class PresinterBeliefs
   }) =>
       PresinterBeliefs(
         framing: framing ?? this.framing,
-        auth: auth ?? this.auth,
+        identity: auth ?? this.identity,
         error: error ?? this.error,
       );
 
   @override
   toJson() => {
         'navigation': framing.toJson(),
-        'auth': auth.toJson(),
+        'auth': identity.toJson(),
         'error': error.toJson(),
       };
 }
