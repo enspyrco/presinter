@@ -1,4 +1,4 @@
-import 'package:identity_in_perception/identity_in_perception.dart';
+import 'package:flutterfire_firebase_auth_for_perception/flutterfire_firebase_auth_for_perception.dart';
 import 'package:flutter/material.dart';
 
 import '../presinter_beliefs.dart';
