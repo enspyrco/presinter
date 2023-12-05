@@ -40,8 +40,8 @@ Future<void> setupPriors() async {
   Locator.add<BeliefSystem<AppBeliefs>>(beliefSystem);
 }
 
-class AstroBase extends StatelessWidget {
-  const AstroBase({Key? key}) : super(key: key);
+class OriginOPerception extends StatelessWidget {
+  const OriginOPerception({super.key});
 
   @override
   Widget build(BuildContext context) {
