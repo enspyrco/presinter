@@ -1,7 +1,7 @@
 import 'package:flutterfire_firebase_auth_for_perception/flutterfire_firebase_auth_for_perception.dart';
 import 'package:flutter/material.dart';
 
-import '../presinter_beliefs.dart';
+import '../app/app_beliefs.dart';
 import 'role_selector.dart';
 import 'sessions_view.dart';
 
@@ -16,9 +16,9 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),
           actions: const [
-            AvatarMenuButton<PresinterBeliefs>(
+            AvatarMenuButton<AppBeliefs>(
               options: {
-                MenuOption('Sign Out', SignOut<PresinterBeliefs>()),
+                MenuOption('Sign Out', SigningOut<AppBeliefs>()),
               },
             )
           ],

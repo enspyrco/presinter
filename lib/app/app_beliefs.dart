@@ -1,18 +1,12 @@
-import 'package:error_correction_in_perception/error_correction_in_perception.dart';
-import 'package:framing_in_perception/framing_in_perception.dart';
-import 'package:abstractions/identity.dart';
-import 'package:abstractions/beliefs.dart';
-import 'package:abstractions/error_correction.dart';
-import 'package:abstractions/framing.dart';
-import 'package:percepts/percepts.dart';
+import 'package:perception/perception.dart';
 
-class PresinterBeliefs
+class AppBeliefs
     implements
         CoreBeliefs,
         FramingConcept,
         ErrorCorrectionConcept,
         IdentityConcept {
-  PresinterBeliefs({
+  AppBeliefs({
     required this.identity,
     required this.error,
     required this.framing,
@@ -25,21 +19,21 @@ class PresinterBeliefs
   @override
   final DefaultFramingBeliefs framing;
 
-  static PresinterBeliefs get initial => PresinterBeliefs(
+  static AppBeliefs get initial => AppBeliefs(
         identity: DefaultIdentityBeliefs.initial,
         error: DefaultErrorCorrectionBeliefs.initial,
         framing: DefaultFramingBeliefs.initial,
       );
 
   @override
-  PresinterBeliefs copyWith({
+  AppBeliefs copyWith({
     DefaultFramingBeliefs? framing,
     DefaultErrorCorrectionBeliefs? error,
-    IdentityBeliefs? auth,
+    IdentityBeliefs? identity,
   }) =>
-      PresinterBeliefs(
+      AppBeliefs(
         framing: framing ?? this.framing,
-        identity: auth ?? this.identity,
+        identity: identity ?? this.identity,
         error: error ?? this.error,
       );
 

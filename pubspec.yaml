@@ -4,34 +4,25 @@ publish_to: 'none'
 version: 0.0.0-a1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  # astro
-  percepts:
-    git: https://github.com/enspyrco/percepts
-  abstractions:
-    git: https://github.com/enspyrco/abstractions
-  locator_for_perception:
-    git: https://github.com/enspyrco/locator_for_perception
   introspection:
     git: https://github.com/enspyrco/introspection
-  error_correction_in_perception:
-    git: https://github.com/enspyrco/error_correction_in_perception
-  framing_in_perception:
-    git: https://github.com/enspyrco/framing_in_perception
+  perception:
+    git: https://github.com/enspyrco/perception
+  
+  flutterfire_firebase_auth_for_perception:
+    git: https://github.com/enspyrco/flutterfire_firebase_auth_for_perception
   
   # database
   firestore_service_interface:
     git: https://github.com/enspyrco/firestore_service_interface
   flutterfire_firestore_service:
     git: https://github.com/enspyrco/flutterfire_firestore_service
-  
-  flutterfire_firebase_auth_for_perception:
-    git: https://github.com/enspyrco/flutterfire_firebase_auth_for_perception
 
   # types
   types_for_auth:

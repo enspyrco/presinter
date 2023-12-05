@@ -1,20 +1,16 @@
 import 'dart:async';
 
-import 'package:flutterfire_firestore_service/flutterfire_firestore_service.dart';
 import 'package:flutterfire_firebase_auth_for_perception/flutterfire_firebase_auth_for_perception.dart';
-import 'package:percepts/percepts.dart';
-import 'package:error_correction_in_perception/error_correction_in_perception.dart';
+import 'package:flutterfire_firestore_service/flutterfire_firestore_service.dart';
 import 'package:introspection/introspection.dart';
-import 'package:locator_for_perception/locator_for_perception.dart';
-import 'package:framing_in_perception/framing_in_perception.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firestore_service_interface/firestore_service_interface.dart';
 import 'package:flutter/material.dart';
-import 'package:abstractions/beliefs.dart';
+import 'package:perception/perception.dart';
 
-import 'home/home_screen.dart';
-import 'presinter_beliefs.dart';
-import 'firebase_options.dart';
+import '../home/home_screen.dart';
+import 'app_beliefs.dart';
+import '../firebase_options.dart';
 
 Future<void> setupPriors() async {
   /// Setup FlutterFire
@@ -24,30 +20,24 @@ Future<void> setupPriors() async {
   /// Setup Locator so plugins can add SystemChecks & Routes, configure the AppState, etc.
   Locator.add<Habits>(DefaultHabits());
   Locator.add<PageGenerator>(DefaultPageGenerator());
-  Locator.add<PresinterBeliefs>(PresinterBeliefs.initial);
+  Locator.add<AppBeliefs>(AppBeliefs.initial);
 
   ///
   Locator.add<FirestoreService>(FlutterfireFirestoreService());
 
-  /// Perform any final initialization by the app such as setting up routes.
-  initializeApp();
+  /// Perform individual plugin initialization.
+  initializeErrorHandling<AppBeliefs>();
+  initializeIdentity<AppBeliefs>(initialScreen: const HomeScreen());
+  initializeIntrospection<AppBeliefs>();
+  initializeFraming<AppBeliefs>();
 
   /// Finally, create our BeliefSystem and add to the Locator.
-  final beliefSystem = DefaultBeliefSystem<PresinterBeliefs>(
-      beliefs: locate<PresinterBeliefs>(),
-      errorHandlers: DefaultErrorHandlers<PresinterBeliefs>(),
+  final beliefSystem = DefaultBeliefSystem<AppBeliefs>(
+      beliefs: locate<AppBeliefs>(),
+      errorHandlers: DefaultErrorHandlers<AppBeliefs>(),
       habits: locate<Habits>(),
       beliefSystemFactory: ParentingBeliefSystem.new);
-  Locator.add<BeliefSystem<PresinterBeliefs>>(beliefSystem);
-}
-
-void initializeApp() {
-  /// Perform individual plugin initialization.
-  initializeErrorHandling<PresinterBeliefs>();
-  initializeFlutterfireFirebaseAuth<PresinterBeliefs>(
-      initialScreen: const HomeScreen());
-  initializeIntrospection<PresinterBeliefs>();
-  initializeFraming<PresinterBeliefs>();
+  Locator.add<BeliefSystem<AppBeliefs>>(beliefSystem);
 }
 
 class AstroBase extends StatelessWidget {
@@ -66,9 +56,11 @@ class AstroBase extends StatelessWidget {
           ),
         Expanded(
           flex: 1,
-          child: FramingBuilder<PresinterBeliefs>(
-            onInit: (beliefSystem) => beliefSystem
-                .consider(const ObservingIdentity<PresinterBeliefs>()),
+          child: FramingBuilder<AppBeliefs>(
+            onInit: (beliefSystem) => beliefSystem.consider(
+              const ObservingIdentity<AppBeliefs,
+                  FlutterfireFirebaseAuthSubsystem>(),
+            ),
           ),
         ),
       ],

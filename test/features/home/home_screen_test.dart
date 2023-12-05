@@ -4,11 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:presinter/home/home_screen.dart';
 import 'package:presinter/home/role_selector.dart';
 import 'package:presinter/home/sessions_view.dart';
-import 'package:presinter/presinter_beliefs.dart';
+import 'package:presinter/app/app_beliefs.dart';
 
 void main() {
   testWidgets('HomeScreen should layout expected widgets', (tester) async {
-    final testState = PresinterBeliefs.initial;
+    final testState = AppBeliefs.initial;
 
     final harness = WidgetTestHarness(
       initialBeliefs: testState,
@@ -19,7 +19,7 @@ void main() {
 
     final roleSelectorFinder = find.byType(RoleSelector);
     final sessionsViewFinder = find.byType(SessionsView);
-    final accountButtonFinder = find.byType(AvatarMenuButton<PresinterBeliefs>);
+    final accountButtonFinder = find.byType(AvatarMenuButton<AppBeliefs>);
 
     expect(roleSelectorFinder, findsOneWidget);
     expect(sessionsViewFinder, findsOneWidget);
