@@ -4,24 +4,31 @@ publish_to: 'none'
 version: 0.0.0-a1
 
 environment:
-  sdk: ">=3.0.1 <4.0.0"
+  sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  # astro
-  astro_core: ^0.0.0-a1
-  astro_types: ^0.0.0-a1
-  astro_locator: ^0.0.0-a1
-  astro_inspector_screen: ^0.0.0-a1
-  astro_auth: ^0.0.0-a1
-  astro_error_handling: ^0.0.0-a1
-  astro_navigation: ^0.0.0-a1
+  introspection:
+    git: https://github.com/enspyrco/introspection
+  perception:
+    git: https://github.com/enspyrco/perception
+  
+  flutterfire_firebase_auth_for_perception:
+    git: https://github.com/enspyrco/flutterfire_firebase_auth_for_perception
+  
+  # database
+  firestore_service_interface:
+    git: https://github.com/enspyrco/firestore_service_interface
+  flutterfire_firestore_service:
+    git: https://github.com/enspyrco/flutterfire_firestore_service
 
-  # firestore
-  firestore_service_interface: ^0.0.0-a1
-  firestore_service_flutterfire: ^0.0.0-a1
+  # types
+  types_for_auth:
+    git: https://github.com/enspyrco/types_for_auth
+  json_utils:
+    git: https://github.com/enspyrco/json_utils
   
   collection: ^1.17.1
   firebase_core: ^2.14.0
@@ -30,5 +37,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   
-  enspyr_lints: ^0.0.0-a1
-  astro_test_utils: ^0.0.0-a1
+  enspyr_lints:
+    git: https://github.com/enspyrco/enspyr_lints
+  test_utils_for_perception:
+    git: https://github.com/enspyrco/test_utils_for_perception

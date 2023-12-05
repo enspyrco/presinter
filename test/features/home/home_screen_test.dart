@@ -1,17 +1,17 @@
-import 'package:astro_auth/astro_auth.dart';
-import 'package:astro_test_utils/astro_widgets_test_utils.dart';
+import 'package:flutterfire_firebase_auth_for_perception/flutterfire_firebase_auth_for_perception.dart';
+import 'package:test_utils_for_perception/test_utils_for_perception.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:presinter/app/home/home_screen.dart';
-import 'package:presinter/app/home/role_selector.dart';
-import 'package:presinter/app/home/sessions_view.dart';
-import 'package:presinter/app/state/app_state.dart';
+import 'package:presinter/home/home_screen.dart';
+import 'package:presinter/home/role_selector.dart';
+import 'package:presinter/home/sessions_view.dart';
+import 'package:presinter/app/app_beliefs.dart';
 
 void main() {
   testWidgets('HomeScreen should layout expected widgets', (tester) async {
-    final testState = AppState.initial;
+    final testState = AppBeliefs.initial;
 
     final harness = WidgetTestHarness(
-      initialState: testState,
+      initialBeliefs: testState,
       innerWidget: const HomeScreen(),
     );
 
@@ -19,7 +19,7 @@ void main() {
 
     final roleSelectorFinder = find.byType(RoleSelector);
     final sessionsViewFinder = find.byType(SessionsView);
-    final accountButtonFinder = find.byType(AvatarMenuButton<AppState>);
+    final accountButtonFinder = find.byType(AvatarMenuButton<AppBeliefs>);
 
     expect(roleSelectorFinder, findsOneWidget);
     expect(sessionsViewFinder, findsOneWidget);

@@ -1,7 +1,7 @@
-import 'package:astro_auth/astro_auth.dart';
+import 'package:flutterfire_firebase_auth_for_perception/flutterfire_firebase_auth_for_perception.dart';
 import 'package:flutter/material.dart';
 
-import '../state/app_state.dart';
+import '../app/app_beliefs.dart';
 import 'role_selector.dart';
 import 'sessions_view.dart';
 
@@ -16,15 +16,15 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),
           actions: const [
-            AvatarMenuButton<AppState>(
+            AvatarMenuButton<AppBeliefs>(
               options: {
-                MenuOption('Sign Out', SignOut()),
+                MenuOption('Sign Out', SigningOut<AppBeliefs>()),
               },
             )
           ],
         ),
-        body: Center(
-          child: Row(children: const [RoleSelector(), SessionsView()]),
+        body: const Center(
+          child: Row(children: [RoleSelector(), SessionsView()]),
         ));
   }
 }
